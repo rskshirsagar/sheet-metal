@@ -1,0 +1,328 @@
+{
+ "actions": [
+  {
+   "action": "Submit",
+   "label": "Submit"
+  }
+ ],
+ "autoname": "SM-LOT-.YYYY.-.#####",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "lot_no_section",
+  "part",
+  "part_name",
+  "col_break_main",
+  "qty",
+  "uom",
+  "status",
+  "col_break_main2",
+  "sales_order",
+  "customer",
+  "priority",
+  "sec_dates",
+  "planned_start_date",
+  "planned_end_date",
+  "col_break_dates",
+  "actual_start_date",
+  "actual_end_date",
+  "sec_raw",
+  "raw_material_item",
+  "raw_material_qty",
+  "raw_material_uom",
+  "col_break_raw",
+  "raw_material_batch",
+  "raw_material_warehouse",
+  "sec_ops",
+  "operations",
+  "sec_summary",
+  "total_operations",
+  "completed_operations",
+  "in_progress_operations",
+  "col_break_summary",
+  "subcontract_operations",
+  "inhouse_operations",
+  "amended_from",
+  "notes"
+ ],
+ "fields": [
+  {
+   "fieldname": "lot_no_section",
+   "fieldtype": "Section Break",
+   "label": "Production Lot"
+  },
+  {
+   "fieldname": "part",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Finished Part",
+   "options": "Item",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "part_name",
+   "fieldtype": "Data",
+   "fetch_from": "part.item_name",
+   "label": "Part Name",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_main",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qty",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Lot Qty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "fetch_from": "part.stock_uom"
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nIn Progress\nPartially Completed\nCompleted\nCancelled",
+   "default": "Draft",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_main2",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sales_order",
+   "fieldtype": "Link",
+   "label": "Sales Order",
+   "options": "Sales Order"
+  },
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "fetch_from": "sales_order.customer",
+   "label": "Customer",
+   "options": "Customer",
+   "read_only": 1
+  },
+  {
+   "fieldname": "priority",
+   "fieldtype": "Select",
+   "label": "Priority",
+   "options": "Normal\nHigh\nUrgent",
+   "default": "Normal",
+   "in_list_view": 1
+  },
+  {
+   "fieldname": "sec_dates",
+   "fieldtype": "Section Break",
+   "label": "Schedule"
+  },
+  {
+   "fieldname": "planned_start_date",
+   "fieldtype": "Date",
+   "label": "Planned Start",
+   "reqd": 1
+  },
+  {
+   "fieldname": "planned_end_date",
+   "fieldtype": "Date",
+   "label": "Planned End"
+  },
+  {
+   "fieldname": "col_break_dates",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "actual_start_date",
+   "fieldtype": "Date",
+   "label": "Actual Start",
+   "read_only": 1
+  },
+  {
+   "fieldname": "actual_end_date",
+   "fieldtype": "Date",
+   "label": "Actual End",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_raw",
+   "fieldtype": "Section Break",
+   "label": "Raw Material"
+  },
+  {
+   "fieldname": "raw_material_item",
+   "fieldtype": "Link",
+   "label": "Raw Material Item",
+   "options": "Item",
+   "reqd": 1
+  },
+  {
+   "fieldname": "raw_material_qty",
+   "fieldtype": "Float",
+   "label": "Raw Material Qty",
+   "reqd": 1
+  },
+  {
+   "fieldname": "raw_material_uom",
+   "fieldtype": "Link",
+   "label": "Raw Material UOM",
+   "options": "UOM",
+   "fetch_from": "raw_material_item.stock_uom"
+  },
+  {
+   "fieldname": "col_break_raw",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "raw_material_batch",
+   "fieldtype": "Link",
+   "label": "Raw Material Batch",
+   "options": "Batch"
+  },
+  {
+   "fieldname": "raw_material_warehouse",
+   "fieldtype": "Link",
+   "label": "Raw Material Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "fieldname": "sec_ops",
+   "fieldtype": "Section Break",
+   "label": "Operation Sequence"
+  },
+  {
+   "fieldname": "operations",
+   "fieldtype": "Table",
+   "label": "Operations",
+   "options": "SM Lot Operation",
+   "reqd": 1
+  },
+  {
+   "fieldname": "sec_summary",
+   "fieldtype": "Section Break",
+   "label": "Summary",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_operations",
+   "fieldtype": "Int",
+   "label": "Total Operations",
+   "read_only": 1
+  },
+  {
+   "fieldname": "completed_operations",
+   "fieldtype": "Int",
+   "label": "Completed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "in_progress_operations",
+   "fieldtype": "Int",
+   "label": "In Progress",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_summary",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "subcontract_operations",
+   "fieldtype": "Int",
+   "label": "Subcontract Ops",
+   "read_only": 1
+  },
+  {
+   "fieldname": "inhouse_operations",
+   "fieldtype": "Int",
+   "label": "In-House Ops",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "SM Production Lot",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "notes",
+   "fieldtype": "Text Editor",
+   "label": "Notes"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [
+  {
+   "group": "Manufacturing",
+   "link_doctype": "Work Order",
+   "link_fieldname": "sm_production_lot"
+  },
+  {
+   "group": "Procurement",
+   "link_doctype": "Subcontracting Order",
+   "link_fieldname": "sm_production_lot"
+  }
+ ],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Sheet Metal Mfg",
+ "name": "SM Production Lot",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Purchase Manager",
+   "share": 1
+  }
+ ],
+ "search_fields": "part,status,planned_start_date",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "part_name",
+ "track_changes": 1
+}

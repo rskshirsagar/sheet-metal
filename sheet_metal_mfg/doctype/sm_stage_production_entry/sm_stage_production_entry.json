@@ -1,0 +1,295 @@
+{
+ "autoname": "SM-SPE-.YYYY.-.#####",
+ "creation": "2024-01-01 00:00:00.000000",
+ "doctype": "DocType",
+ "document_type": "Document",
+ "engine": "InnoDB",
+ "field_order": [
+  "sec_lot",
+  "production_lot",
+  "operation_seq",
+  "operation",
+  "operation_row_name",
+  "col_break_lot",
+  "work_order",
+  "posting_date",
+  "posting_time",
+  "status",
+  "sec_items",
+  "wip_item_in",
+  "source_warehouse",
+  "col_break_items",
+  "wip_item_out",
+  "target_warehouse",
+  "sec_qty",
+  "qty_available_to_produce",
+  "qty_to_produce",
+  "col_break_qty",
+  "qty_produced",
+  "qty_rejected",
+  "uom",
+  "sec_balance",
+  "qty_cumulative_before",
+  "qty_open_before",
+  "col_break_balance",
+  "qty_cumulative_after",
+  "qty_open_after",
+  "sec_docs",
+  "stock_entry",
+  "amended_from",
+  "remarks"
+ ],
+ "fields": [
+  {
+   "fieldname": "sec_lot",
+   "fieldtype": "Section Break",
+   "label": "Production Reference"
+  },
+  {
+   "fieldname": "production_lot",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Production Lot",
+   "options": "SM Production Lot",
+   "reqd": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "operation_seq",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Stage Seq",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operation",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Operation",
+   "read_only": 1
+  },
+  {
+   "fieldname": "operation_row_name",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Operation Row (internal)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "col_break_lot",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "work_order",
+   "fieldtype": "Link",
+   "label": "Work Order",
+   "options": "Work Order",
+   "reqd": 1
+  },
+  {
+   "fieldname": "posting_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Posting Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "posting_time",
+   "fieldtype": "Time",
+   "label": "Posting Time",
+   "reqd": 1
+  },
+  {
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "options": "Draft\nSubmitted\nCancelled",
+   "default": "Draft",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_items",
+   "fieldtype": "Section Break",
+   "label": "WIP Items"
+  },
+  {
+   "fieldname": "wip_item_in",
+   "fieldtype": "Link",
+   "label": "WIP Item In (Input)",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "source_warehouse",
+   "fieldtype": "Link",
+   "label": "Source Warehouse",
+   "options": "Warehouse",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_items",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "wip_item_out",
+   "fieldtype": "Link",
+   "label": "WIP Item Out (Output)",
+   "options": "Item",
+   "read_only": 1
+  },
+  {
+   "fieldname": "target_warehouse",
+   "fieldtype": "Link",
+   "label": "Target Warehouse",
+   "options": "Warehouse",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_qty",
+   "fieldtype": "Section Break",
+   "label": "Quantity — This Session"
+  },
+  {
+   "fieldname": "qty_available_to_produce",
+   "fieldtype": "Float",
+   "label": "Available to Produce",
+   "read_only": 1,
+   "description": "Qty open at this stage = Planned - Already Produced"
+  },
+  {
+   "fieldname": "qty_to_produce",
+   "fieldtype": "Float",
+   "label": "Qty to Produce (Session)",
+   "reqd": 1,
+   "description": "How many pieces to book in this production session"
+  },
+  {
+   "fieldname": "col_break_qty",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qty_produced",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Qty Produced (Good)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "qty_rejected",
+   "fieldtype": "Float",
+   "label": "Qty Rejected",
+   "default": "0"
+  },
+  {
+   "fieldname": "uom",
+   "fieldtype": "Link",
+   "label": "UOM",
+   "options": "UOM",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_balance",
+   "fieldtype": "Section Break",
+   "label": "Running Balance",
+   "collapsible": 1
+  },
+  {
+   "fieldname": "qty_cumulative_before",
+   "fieldtype": "Float",
+   "label": "Cumulative Produced (Before)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qty_open_before",
+   "fieldtype": "Float",
+   "label": "Open Qty (Before)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "col_break_balance",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "qty_cumulative_after",
+   "fieldtype": "Float",
+   "label": "Cumulative Produced (After)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "qty_open_after",
+   "fieldtype": "Float",
+   "label": "Open Qty (After)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "sec_docs",
+   "fieldtype": "Section Break",
+   "label": "Linked Documents"
+  },
+  {
+   "fieldname": "stock_entry",
+   "fieldtype": "Link",
+   "label": "Manufacture Stock Entry",
+   "options": "Stock Entry",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "SM Stage Production Entry",
+   "print_hide": 1,
+   "read_only": 1
+  },
+  {
+   "fieldname": "remarks",
+   "fieldtype": "Small Text",
+   "label": "Remarks"
+  }
+ ],
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2024-01-01 00:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Sheet Metal Mfg",
+ "name": "SM Stage Production Entry",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing User",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Manufacturing Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  }
+ ],
+ "search_fields": "production_lot,operation,work_order",
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "title_field": "operation",
+ "track_changes": 1
+}

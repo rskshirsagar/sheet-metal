@@ -6,15 +6,17 @@ app_icon = "octicon octicon-tools"
 app_color = "#e74c3c"
 app_email = "info@yourcompany.com"
 app_license = "MIT"
+app_logo_url = "/assets/sheet_metal_mfg/images/sheet-metal-logo.svg"
 
 fixtures = [
-    {"dt": "Custom Field",    "filters": [["module", "=", "Sheet Metal Mfg"]]},
-    {"dt": "Property Setter", "filters": [["module", "=", "Sheet Metal Mfg"]]},
+    {"dt": "Workspace",      "filters": [["module", "=", "Sheet Metal Mfg"]]},
+    {"dt": "Custom Field",   "filters": [["module", "=", "Sheet Metal Mfg"]]},
+    {"dt": "Property Setter","filters": [["module", "=", "Sheet Metal Mfg"]]},
 ]
 
 doctype_js = {
-    "Work Order":             "public/js/work_order_extend.js",
-    "Subcontracting Order":   "public/js/subcontracting_order_extend.js",
+    "Work Order":           "public/js/work_order_extend.js",
+    "Subcontracting Order": "public/js/subcontracting_order_extend.js",
 }
 
 scheduler_events = {
@@ -28,9 +30,6 @@ has_permission = {
 }
 
 doc_events = {
-    # NOTE: on_job_card_submit removed in v2 — production is now booked via
-    # SM Stage Production Entry, not via Job Card submit.
-    # Job Cards are still used for time tracking but do NOT auto-complete ops.
     "Subcontracting Receipt": {
         "on_submit": "sheet_metal_mfg.doctype.sm_production_lot.sm_production_lot.on_subcontracting_receipt_submit",
     },

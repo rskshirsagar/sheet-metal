@@ -1,7 +1,7 @@
 {
  "category": "Modules",
  "charts": [],
- "content": "[{\"id\":\"sm_shortcuts\",\"type\":\"shortcut\"},{\"id\":\"sm_links\",\"type\":\"link\"}]",
+ "content": "[{\"id\":\"shortcut-block-1\",\"type\":\"shortcut\"},{\"id\":\"link-block-1\",\"type\":\"link\"}]",
  "creation": "2024-01-01 00:00:00.000000",
  "doctype": "Workspace",
  "hide_custom": 0,
@@ -10,8 +10,47 @@
  "is_default": 0,
  "is_standard": 1,
  "label": "Sheet Metal Mfg",
+ "module": "Sheet Metal Mfg",
+ "name": "Sheet Metal Mfg",
+ "owner": "Administrator",
+ "public": 1,
+ "shortcuts": [
+  {
+   "name": "shortcut-active-lots",
+   "color": "Red",
+   "format": "{} Active",
+   "label": "Active Lots",
+   "link_to": "SM Production Lot",
+   "stats_filter": "{\"status\": [\"in\", [\"In Progress\", \"Partially Completed\"]], \"docstatus\": 1}",
+   "type": "DocType"
+  },
+  {
+   "name": "shortcut-pending-subcontract",
+   "color": "Orange",
+   "format": "{} Pending",
+   "label": "Pending Subcontract",
+   "link_to": "Subcontracting Order",
+   "stats_filter": "{\"status\": [\"not in\", [\"Completed\", \"Cancelled\"]]}",
+   "type": "DocType"
+  },
+  {
+   "name": "shortcut-wip-stage-summary",
+   "color": "Blue",
+   "label": "WIP Stage Summary",
+   "link_to": "WIP Stage Summary",
+   "type": "Report"
+  },
+  {
+   "name": "shortcut-subcontract-tracker",
+   "color": "Green",
+   "label": "Subcontract Tracker",
+   "link_to": "Subcontract Status Tracker",
+   "type": "Report"
+  }
+ ],
  "links": [
   {
+   "name": "link-sm-production-lot",
    "dependencies": "",
    "doctype": "SM Production Lot",
    "hidden": 0,
@@ -24,6 +63,7 @@
    "type": "Link"
   },
   {
+   "name": "link-break-manufacturing",
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
@@ -32,6 +72,7 @@
    "type": "Card Break"
   },
   {
+   "name": "link-work-order",
    "dependencies": "",
    "doctype": "Work Order",
    "hidden": 0,
@@ -44,6 +85,7 @@
    "type": "Link"
   },
   {
+   "name": "link-job-card",
    "dependencies": "",
    "doctype": "Job Card",
    "hidden": 0,
@@ -55,6 +97,19 @@
    "type": "Link"
   },
   {
+   "name": "link-stage-production-entry",
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Stage Production Entry",
+   "link_count": 0,
+   "link_to": "SM Stage Production Entry",
+   "link_type": "DocType",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "name": "link-break-subcontracting",
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
@@ -63,6 +118,7 @@
    "type": "Card Break"
   },
   {
+   "name": "link-subcontracting-order",
    "dependencies": "",
    "doctype": "Subcontracting Order",
    "hidden": 0,
@@ -75,6 +131,7 @@
    "type": "Link"
   },
   {
+   "name": "link-subcontracting-receipt",
    "dependencies": "",
    "doctype": "Subcontracting Receipt",
    "hidden": 0,
@@ -86,6 +143,7 @@
    "type": "Link"
   },
   {
+   "name": "link-break-inventory",
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
@@ -94,6 +152,7 @@
    "type": "Card Break"
   },
   {
+   "name": "link-stock-entry",
    "dependencies": "",
    "doctype": "Stock Entry",
    "hidden": 0,
@@ -105,6 +164,7 @@
    "type": "Link"
   },
   {
+   "name": "link-item-wip",
    "dependencies": "",
    "doctype": "Item",
    "hidden": 0,
@@ -116,6 +176,7 @@
    "type": "Link"
   },
   {
+   "name": "link-break-reports",
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
@@ -124,6 +185,7 @@
    "type": "Card Break"
   },
   {
+   "name": "link-wip-stage-summary",
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 1,
@@ -135,6 +197,7 @@
    "type": "Link"
   },
   {
+   "name": "link-lot-traveller",
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 1,
@@ -146,6 +209,7 @@
    "type": "Link"
   },
   {
+   "name": "link-operation-pending-qty",
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 1,
@@ -157,6 +221,7 @@
    "type": "Link"
   },
   {
+   "name": "link-subcontract-status-tracker",
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 1,
@@ -168,69 +233,7 @@
    "type": "Link"
   },
   {
-   "dependencies": "",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Setup",
-   "link_count": 0,
-   "type": "Card Break"
-  },
-  {
-   "dependencies": "",
-   "doctype": "Operation",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Operation",
-   "link_count": 0,
-   "link_to": "Operation",
-   "link_type": "DocType",
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "doctype": "Workstation",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Workstation",
-   "link_count": 0,
-   "link_to": "Workstation",
-   "link_type": "DocType",
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "doctype": "BOM",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "BOM",
-   "link_count": 0,
-   "link_to": "BOM",
-   "link_type": "DocType",
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "doctype": "Routing",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Routing",
-   "link_count": 0,
-   "link_to": "Routing",
-   "link_type": "DocType",
-   "type": "Link"
-  },
-  {
-   "dependencies": "",
-   "doctype": "Warehouse",
-   "hidden": 0,
-   "is_query_report": 0,
-   "label": "Warehouse",
-   "link_count": 0,
-   "link_to": "Warehouse",
-   "link_type": "DocType",
-   "type": "Link"
-  },
-  {
+   "name": "link-stage-production-summary",
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 1,
@@ -242,49 +245,73 @@
    "type": "Link"
   },
   {
+   "name": "link-break-setup",
    "dependencies": "",
    "hidden": 0,
    "is_query_report": 0,
-   "label": "Stage Production Entry",
+   "label": "Setup",
    "link_count": 0,
-   "link_to": "SM Stage Production Entry",
+   "type": "Card Break"
+  },
+  {
+   "name": "link-operation",
+   "dependencies": "",
+   "doctype": "Operation",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Operation",
+   "link_count": 0,
+   "link_to": "Operation",
    "link_type": "DocType",
-   "onboard": 1,
    "type": "Link"
-  }
- ],
- "module": "Sheet Metal Mfg",
- "name": "Sheet Metal Mfg",
- "owner": "Administrator",
- "public": 1,
- "shortcuts": [
-  {
-   "color": "Red",
-   "format": "{} Active",
-   "label": "Active Lots",
-   "link_to": "SM Production Lot",
-   "stats_filter": "{\"status\": [\"in\", [\"In Progress\", \"Partially Completed\"]], \"docstatus\": 1}",
-   "type": "DocType"
   },
   {
-   "color": "Orange",
-   "format": "{} Pending",
-   "label": "Pending Subcontract",
-   "link_to": "Subcontracting Order",
-   "stats_filter": "{\"status\": [\"not in\", [\"Completed\", \"Cancelled\"]]}",
-   "type": "DocType"
+   "name": "link-workstation",
+   "dependencies": "",
+   "doctype": "Workstation",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Workstation",
+   "link_count": 0,
+   "link_to": "Workstation",
+   "link_type": "DocType",
+   "type": "Link"
   },
   {
-   "color": "Blue",
-   "label": "WIP Stage Summary",
-   "link_to": "WIP Stage Summary",
-   "type": "Report"
+   "name": "link-bom",
+   "dependencies": "",
+   "doctype": "BOM",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "BOM",
+   "link_count": 0,
+   "link_to": "BOM",
+   "link_type": "DocType",
+   "type": "Link"
   },
   {
-   "color": "Green",
-   "label": "Subcontract Tracker",
-   "link_to": "Subcontract Status Tracker",
-   "type": "Report"
+   "name": "link-routing",
+   "dependencies": "",
+   "doctype": "Routing",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Routing",
+   "link_count": 0,
+   "link_to": "Routing",
+   "link_type": "DocType",
+   "type": "Link"
+  },
+  {
+   "name": "link-warehouse",
+   "dependencies": "",
+   "doctype": "Warehouse",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Warehouse",
+   "link_count": 0,
+   "link_to": "Warehouse",
+   "link_type": "DocType",
+   "type": "Link"
   }
  ]
 }

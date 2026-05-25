@@ -1,15 +1,17 @@
 [build-system]
-requires = ["setuptools", "wheel"]
-build-backend = "setuptools.build_meta"    # ← fix this line
+requires = ["flit_core >=3.4,<4"]
+build-backend = "flit_core.buildapi"
 
 [project]
 name = "sheet_metal_mfg"
-version = "1.0.0"
-description = "Sheet Metal WIP & Production Lot Management for ERPNext V16"
-readme = "README.md"
-license = { text = "MIT" }
+authors = [{ name = "Sanvidhi Tech", email = "info@sanvidhitech.com" }]
+description = "Sheet Metal WIP Management for ERPNext V16"
 requires-python = ">=3.10"
+readme = "README.md"
+dynamic = ["version"]
 dependencies = []
 
-[tool.setuptools.packages.find]
-where = ["."]
+[project.urls]
+Homepage = "https://github.com/rskshirsagar/sheet-metal"
+
+[tool.bench.dev-dependencies]

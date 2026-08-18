@@ -15,7 +15,7 @@ frappe.ui.form.on("SM Production Lot", {
     part(frm) {
         if (!frm.doc.part) return;
         frappe.call({
-            method: "sheet_metal_mfg.doctype.sm_production_lot.sm_production_lot.get_operations_for_part",
+            method: "sheet_metal_mfg.sheet_metal_mfg.doctype.sm_production_lot.sm_production_lot.get_operations_for_part",
             args: { part: frm.doc.part },
             callback(r) {
                 if (!r.message || !r.message.length) {

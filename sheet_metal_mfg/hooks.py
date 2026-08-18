@@ -8,6 +8,14 @@ app_email = "info@yourcompany.com"
 app_license = "MIT"
 app_logo_url = "/assets/sheet_metal_mfg/images/sheet-metal-logo.svg"
 
+# Registers a custom sprite so "sheet-metal-mfg" is selectable as a
+# Workspace/sidebar icon on the Desk (Frappe's own icon set has no
+# sheet-metal icon, so it must be added this way rather than referencing
+# a built-in icon name).
+app_include_icons = [
+    "/assets/sheet_metal_mfg/icons/sheet_metal_mfg.svg",
+]
+
 fixtures = [
     {"dt": "Workspace",      "filters": [["module", "=", "Sheet Metal Mfg"]]},
     {"dt": "Custom Field",   "filters": [["module", "=", "Sheet Metal Mfg"]]},
@@ -26,14 +34,14 @@ scheduler_events = {
 }
 
 has_permission = {
-    "SM Production Lot": "sheet_metal_mfg.doctype.sm_production_lot.sm_production_lot.has_permission",
+    "SM Production Lot": "sheet_metal_mfg.sheet_metal_mfg.doctype.sm_production_lot.sm_production_lot.has_permission",
 }
 
 doc_events = {
     "Subcontracting Receipt": {
-        "on_submit": "sheet_metal_mfg.doctype.sm_production_lot.sm_production_lot.on_subcontracting_receipt_submit",
+        "on_submit": "sheet_metal_mfg.sheet_metal_mfg.doctype.sm_production_lot.sm_production_lot.on_subcontracting_receipt_submit",
     },
     "Stock Entry": {
-        "on_submit": "sheet_metal_mfg.doctype.sm_production_lot.sm_production_lot.on_stock_entry_submit",
+        "on_submit": "sheet_metal_mfg.sheet_metal_mfg.doctype.sm_production_lot.sm_production_lot.on_stock_entry_submit",
     },
 }
